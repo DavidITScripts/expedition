@@ -62,7 +62,11 @@ echo - Finally, Eyewitness\(takes screenshots of all websites found by gobuster\
 echo ''
 echo If you don\'t want to run certain programs, just comment them out in the script.
 echo threads are set to default, you may need to adjust that.
+echo -e ${RED}NOTE\:${NC}
+echo For automations sake, both Nikto and Eyewitness bring up prompts.
 echo ''
+echo to turn off nikto prompts, set UPDATES=auto or no
+echo for eyewitness, just write --no-reports in the script.
 echo -e ${RED}Creator not responsible for blacklisting${NC}
 echo ''
 echo this might take a while\; you can find different versions of this script at github.com
