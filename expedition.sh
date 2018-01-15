@@ -60,6 +60,7 @@ echo - snmpwalk on 161
 echo - Enum4linux wherever port 137,139, or 445 are open
 echo - Finally, Eyewitness\(takes screenshots of all websites found by gobuster\)
 echo ''
+echo If you don\'t want to run certain programs, just comment them out in the script.
 echo threads are set to default, you may need to adjust that.
 echo ''
 echo -e ${RED}Creator not responsible for blacklisting${NC}
@@ -147,6 +148,7 @@ then
 	for ip in $(cat $PROJECT/80.txt | cut -d ':' -f1); do
 	echo -e ${CYAN}Running Nikto on http://$ip${NC}
 	nikto -h http://$ip tee -a $PROJECT/$ip/nikto80.txt $PROJECT/$ip/expedition.txt
+	done
 fi
 
 if [ -e $PROJECT/443.txt ]
@@ -155,6 +157,7 @@ then
 	for ip in $(cat $PROJECT/443.txt | cut -d ':' -f1); do
 	echo -e ${CYAN}Running Nikto on https://$ip${NC}
 	nikto -h https://$ip | tee -a $PROJECT/$ip/nikto443.txt $PROJECT/$ip/expedition.txt
+	done
 fi
 
 #sslscan
@@ -184,7 +187,8 @@ then
 	echo -e ${GREEN}Running Enum4linux on ports 137,139,445
 	for enum in cat($PROJECT/137_139_445.txt | cut -d ':' -f1); do
 	echo -e ${CYAN}Running Enum4linux on $enum${NC}
-
+	done
+fi
 #EyeWitness. Note, it's last because it asks to open a report at the end. 
 #If you want to run in another order, add the --no-report option to this part
 #or you will have to hit yes or no. to continue the script.
