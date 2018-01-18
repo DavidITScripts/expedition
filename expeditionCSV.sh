@@ -179,7 +179,7 @@ fi
 if [ -e $PROJECT/161.txt ]
 then
 	echo -e ${GREEN}Running snmpwalk\(public string\ on port 161)
-	for snmp in cat($PROJECT/161.txt | cut -d ':' -f1); do
+	for snmp in $(cat $PROJECT/161.txt | cut -d ':' -f1); do
 	echo -e ${CYAN}Running snmpwalk on $snmp${NC}
 	snmpwalk -c public $snmp | tee -a  $PROJECT/$snmp/snmp.txt $PROJECT/$snmp/expedition.txt
 	done
@@ -189,7 +189,7 @@ fi
 if [ -e $PROJECT/137_139_445.txt ]
 then
 	echo -e ${GREEN}Running Enum4linux on ports 137,139,445
-	for enum in cat($PROJECT/137_139_445.txt | cut -d ':' -f1); do
+	for enum in $(cat $PROJECT/137_139_445.txt | cut -d ':' -f1); do
 	echo -e ${CYAN}Running Enum4linux on $enum${NC}
 	done
 fi
