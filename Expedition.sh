@@ -360,7 +360,6 @@ fi
 if [ ! -f $PROJECT/80_443.txt ]  && [ "$GOBUSTER" = true ];
 then
 	echo -e ${RED}'Could not find any open ports on 80 or 443; skipping Gobuster'${NC}
-done
 fi
 
 
@@ -389,7 +388,7 @@ fi
 if [ ! -f $PROJECT/80_443.txt ]  && [ "$NIKTO" = true ];
 then
 	echo -e ${RED}'Could not find any open ports on 80 or 443; skipping Nikto'${NC}
-done
+
 fi
 
 
@@ -407,7 +406,7 @@ fi
 if [ ! -f $PROJECT/443.txt ]  && [ "$SSLSCAN" = true ];
 then
 	echo -e ${RED}'Could not find any open SSL ports for SSLSCAN; skipping.'${NC}
-done
+
 fi
 
 
@@ -441,7 +440,7 @@ fi
 if [ ! -f $PROJECT/137_139_445.txt ] && [ "$ENUM4LINUX" = true ];
 then
 	echo -e ${RED}'No applicable ports appear to be open for enum4linux; skipping.'${NC}
-	done
+
 fi
 
 
