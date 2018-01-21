@@ -339,7 +339,7 @@ then
 	for http in $(cat $PROJECT/80.txt | cut -d ':' -f1); do 
 
 	echo -e ${CYAN}Running Gobuster\(common.txt\) on $http\:80 ${NC}
-	gobuster -v -u http://$http \
+	gobuster -u http://$http \
   	-w $GOLIST \ -t $GOTHREADS \
   	-s $GOSTATUS -e | grep 'Status' | tee -a $PROJECT/$http/gobuster80.txt $PROJECT/$http/expedition.txt
   	grep -v 'Status: 200' $PROJECT/$http/gobuster80.txt > $PROJECT/foundsites.txt
@@ -350,7 +350,7 @@ if [ -e $PROJECT/443.txt ] && [ "$GOBUSTER" = true ];
 	then
 		for https in $(cat $PROJECT/443.txt | cut -d ':' -f1); do 
 		echo -e ${CYAN}Running Gobuster\(common.txt\) on $https\:443 ${NC}
-		gobuster -v -u https://$https \
+		gobuster -u https://$https \
   		-w $GOLIST \ -t $GOTHREADS \
   		-s $GOSTATUS -e | grep 'Status' | tee -a $PROJECT/$https/gobuster443.txt $PROJECT/$https/expedition.txt 
   		grep 'Status: 200' $PROJECT/$https/gobuster443.txt >> $PROJECT/foundsites.txt 
